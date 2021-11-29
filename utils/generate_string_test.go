@@ -2,8 +2,8 @@ package utils_test
 
 import (
 	"github.com/stretchr/testify/assert"
+	"gitlab.com/analytics-pumpchang/universe/utils"
 	"testing"
-	"universe/utils"
 )
 
 func TestUtils_GenerateRandomString(t *testing.T) {

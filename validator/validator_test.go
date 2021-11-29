@@ -2,10 +2,10 @@ package validator_test
 
 import (
 	"github.com/stretchr/testify/assert"
+	"gitlab.com/analytics-pumpchang/universe/utils"
+	"gitlab.com/analytics-pumpchang/universe/validator"
 	"testing"
 	"time"
-	"universe/utils"
-	"universe/validator"
 )
 
 func TestUtils_IsValidEmail(t *testing.T) {

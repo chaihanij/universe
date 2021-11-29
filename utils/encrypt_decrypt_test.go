@@ -5,9 +5,9 @@ import (
 	"encoding/hex"
 	"fmt"
 	"github.com/stretchr/testify/assert"
+	"gitlab.com/analytics-pumpchang/universe/utils"
 	"log"
 	"testing"
-	"universe/utils"
 )
 
 func TestUtils_EncryptAES(t *testing.T) {

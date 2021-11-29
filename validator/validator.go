@@ -4,12 +4,12 @@ import (
 	"github.com/google/uuid"
 	"github.com/pariz/gountries"
 	"github.com/shopspring/decimal"
+	"gitlab.com/analytics-pumpchang/universe/utils"
 	_currency "golang.org/x/text/currency"
 	"regexp"
 	"strconv"
 	"strings"
 	"time"
-	"universe/utils"
 )
 
 func IsValidEmail(email string) bool {

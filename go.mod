@@ -1,4 +1,4 @@
-module universe
+module gitlab.com/analytics-pumpchang/universe
 
 go 1.14
 
