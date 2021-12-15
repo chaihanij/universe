@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/analytics-pumpchang/universe/utils"
+	"gitlab.com/gridwhizth/universe/utils"
 	"log"
 	"testing"
 )

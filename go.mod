@@ -1,4 +1,4 @@
-module gitlab.com/analytics-pumpchang/universe
+module gitlab.com/gridwhizth/universe
 
 go 1.14
 

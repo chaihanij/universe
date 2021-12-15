@@ -4,7 +4,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/pariz/gountries"
 	"github.com/shopspring/decimal"
-	"gitlab.com/analytics-pumpchang/universe/utils"
+	"gitlab.com/gridwhizth/universe/utils"
 	_currency "golang.org/x/text/currency"
 	"regexp"
 	"strconv"

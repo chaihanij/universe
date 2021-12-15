@@ -2,8 +2,8 @@ package validator_test
 
 import (
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/analytics-pumpchang/universe/utils"
-	"gitlab.com/analytics-pumpchang/universe/validator"
+	"gitlab.com/gridwhizth/universe/utils"
+	"gitlab.com/gridwhizth/universe/validator"
 	"testing"
 	"time"
 )
