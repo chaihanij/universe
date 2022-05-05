@@ -1,9 +1,11 @@
 package validator
 
 import (
+	"encoding/json"
 	"github.com/google/uuid"
 	"github.com/pariz/gountries"
 	"github.com/shopspring/decimal"
+	"gitlab.com/gridwhizth/universe/constants"
 	"gitlab.com/gridwhizth/universe/utils"
 	_currency "golang.org/x/text/currency"
 	"regexp"
@@ -150,4 +152,23 @@ func IsValidUsername(username string) bool {
 	}
 
 	return true
+}
+
+func IsJSON(str string) bool {
+	var js interface{}
+	if err := json.Unmarshal([]byte(str), &js); err != nil {
+		return false
+	}
+	switch js.(type) {
+	case map[string]interface{}:
+		return true
+	case []interface{}:
+		return true
+	default:
+		return false
+	}
+}
+
+func IsBase64(str string) bool {
+	return constants.RxBase64.MatchString(str)
 }
