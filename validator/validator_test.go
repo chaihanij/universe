@@ -352,4 +352,23 @@ func TestIsValidUsername(t *testing.T) {
 		assert.False(t, validator.IsValidUsername("inwza007iiiii"))
 		assert.False(t, validator.IsValidUsername("0899999999"))
 	})
+
+	t.Run("Json is valid", func(t *testing.T) {
+		assert.True(t, validator.IsJSON(`{ "id": "62531347b3ed0e9865d72833" }`))
+		assert.True(t, validator.IsJSON(`[ { "id": "62531347b3ed0e9865d72833" }, { "id": "62531347b3ed0e9865d72833" } ]`))
+	})
+	t.Run("Json is not valid", func(t *testing.T) {
+		assert.False(t, validator.IsJSON(`xxx`))
+		assert.False(t, validator.IsJSON(`11118374`))
+	})
+
+	t.Run("Base64 is valid", func(t *testing.T) {
+		assert.True(t, validator.IsBase64("ZjQxMzkzYzEtNWFlNC00ZjI0LWFjZTktZDU0YjMxYjJjNmNm"))
+		assert.True(t, validator.IsBase64(`PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjQ4cHgiIGhlaWdodD0iNDhweCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBkYXRhLW5hbWU9IkxheWVyIDEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0aXRsZS8+PHBhdGggZD0iTTgsMUEyLDIsMCwwLDAsNiwzVjQ1YTIsMiwwLDAsMCw0LDBWM0EyLDIsMCwwLDAsOCwxWiIvPjxwYXRoIGQ9Ik00My41NSwxMy43NEMzOC4yMiw3LjE4LDMyLjcxLDcuNjIsMjcuODQsOGMtNC42My4zNy04LjI5LjY2LTEyLjI5LTQuMjdBMiwyLDAsMCwwLDEyLDVWMjJhMiwyLDAsMCwwLC45NCwxLjcsOS4wOSw5LjA5LDAsMCwwLDQuOTEsMS40NmM0LDAsNy44LTIuNjIsMTEuMjgtNSw1LjE0LTMuNTMsOC40OS01LjUyLDExLjgxLTMuNDVhMiwyLDAsMCwwLDIuNjEtM1pNMjYuODcsMTYuODVDMjIuMjIsMjAsMTksMjIsMTYsMjAuNzhWOS42NmM0LjE4LDMsOC4zNywyLjYzLDEyLjE2LDIuMzMsMi41NC0uMiw0Ljc5LS4zOCw3LC4zMUMzMi4yMywxMy4xNywyOS40NiwxNS4wNywyNi44NywxNi44NVoiLz48L3N2Zz4=`))
+	})
+
+	t.Run("Base64 is not valid", func(t *testing.T) {
+		assert.False(t, validator.IsBase64("xxx"))
+		assert.False(t, validator.IsBase64(`1234567`))
+	})
 }
