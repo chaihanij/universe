@@ -8,6 +8,7 @@ import (
 	"gitlab.com/gridwhizth/universe/constants"
 	"gitlab.com/gridwhizth/universe/utils"
 	_currency "golang.org/x/text/currency"
+	"net/url"
 	"regexp"
 	"strconv"
 	"strings"
@@ -171,4 +172,26 @@ func IsJSON(str string) bool {
 
 func IsBase64(str string) bool {
 	return constants.RxBase64.MatchString(str)
+}
+
+func IsBase64DataType(str string) bool {
+	return constants.RxBase64DataType.MatchString(str)
+}
+
+func IsURL(str string) bool {
+	if str == "" || len(str) >= 2083 || len(str) <= 3 || strings.HasPrefix(str, ".") {
+		return false
+	}
+	u, err := url.Parse(str)
+	if err != nil {
+		return false
+	}
+	if strings.HasPrefix(u.Host, ".") {
+		return false
+	}
+	if u.Host == "" && (u.Path != "" && !strings.Contains(u.Path, ".")) {
+		return false
+	}
+	return constants.RxURL.MatchString(str)
+
 }
